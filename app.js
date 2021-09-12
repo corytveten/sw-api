@@ -38,12 +38,13 @@ const APP = {
 
         fetch(url)
             .then(resp => {
-
+                if (!resp.ok) throw new Error(resp.statusText);
+                return resp.json();
             })
             .then(App.buildList)
             .catch(console.error)
     },
-    buildList: (data) = {
+    buildList: (data) => {
         let m = document.getElementById('main');
         console.log(data);
 
