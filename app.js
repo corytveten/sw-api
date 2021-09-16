@@ -54,6 +54,12 @@ const APP = {
         let m = document.getElementById('main');
         console.log(data);
 
+        m.innerHTML = data.results.map((item) => {
+            let nm = item.name || item.title;
+            return `<p>${nm}</p>`
+        })
+        .join(' ');
+
         let footer = document.getElementById('footer');
         footer.innerHTML = '';
 
